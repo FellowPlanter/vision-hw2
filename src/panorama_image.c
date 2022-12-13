@@ -117,8 +117,11 @@ image find_and_draw_matches(image a, image b, float sigma, float thresh, int nms
 // returns: l1 distance between arrays (sum of absolute differences).
 float l1_distance(float *a, float *b, int n)
 {
-    // TODO: return the correct number.
-    return 0;
+    float res = 0;
+    for(int i =0;i<n;++i){
+        res += fabs(a[i] - b[i]);
+    }
+    return res;
 }
 
 // Finds best matches between descriptors of two images.
@@ -177,8 +180,9 @@ point project_point(matrix H, point p)
 // returns: L2 distance between them.
 float point_distance(point p, point q)
 {
-    // TODO: should be a quick one.
-    return 0;
+    int xd = p.x - q.x;
+    int yd = p.y - q.y;
+    return sqrtf(xd*xd + yd*yd);
 }
 
 // Count number of inliers in a set of matches. Should also bring inliers

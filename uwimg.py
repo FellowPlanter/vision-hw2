@@ -153,6 +153,14 @@ convolve_image = lib.convolve_image
 convolve_image.argtypes = [IMAGE, IMAGE, c_int]
 convolve_image.restype = IMAGE
 
+smooth_image = lib.smooth_image
+smooth_image.argtypes = [IMAGE, c_float]
+smooth_image.restype = IMAGE
+
+fast_gaussian_blur = lib.fast_gaussian_blur
+fast_gaussian_blur.argtypes = [IMAGE, c_float]
+fast_gaussian_blur.restype = IMAGE
+
 harris_corner_detector = lib.harris_corner_detector
 harris_corner_detector.argtypes = [IMAGE, c_float, c_float, c_int, POINTER(c_int)]
 harris_corner_detector.restype = POINTER(DESCRIPTOR)
